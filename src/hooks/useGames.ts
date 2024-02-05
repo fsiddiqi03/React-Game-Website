@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { CanceledError } from "axios";
 
-const useGames = () => {
 
-  interface Game { // generate interface for the results 
+
+export interface Game { // generate interface for the results 
     id: number;
     name: string;
   }
@@ -16,6 +16,9 @@ const useGames = () => {
 
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState<string | null>(null); // Error state should be a string or null
+
+
+const useGames = () => {
 
   useEffect(() => {
     const controller = new AbortController();
