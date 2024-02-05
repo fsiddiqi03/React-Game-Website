@@ -7,6 +7,7 @@ import { CanceledError } from "axios";
 export interface Game { // generate interface for the results 
     id: number;
     name: string;
+    background_image: string;
   }
 
   interface FetchGamesResponse {
@@ -14,11 +15,12 @@ export interface Game { // generate interface for the results
     results: Game[]; // Ensure result is typed as an array of Game
   }
 
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState<string | null>(null); // Error state should be a string or null
 
 
 const useGames = () => {
+
+    const [games, setGames] = useState<Game[]>([]);
+    const [error, setError] = useState<string | null>(null); // Error state should be a string or null
 
   useEffect(() => {
     const controller = new AbortController();
